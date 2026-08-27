@@ -1,0 +1,256 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Google Light Theme */
+    --md-bg: #FFFFFF;
+    --md-surface: #F8F9FA;
+    --md-surface-variant: #F1F3F4;
+    --md-surface-elevated: #FFFFFF;
+    --md-border: #E0E2E6;
+    --md-border-subtle: #ECEFF1;
+    --md-text-primary: #202124;
+    --md-text-secondary: #5F6368;
+    --md-text-tertiary: #80868B;
+    
+    /* Skeleton Shimmer Gradient - Light */
+    --md-shimmer-base: #F8F9FA;
+    --md-shimmer-highlight: #EDEEF0;
+
+    /* Google Brand Accent */
+    --md-brand: #4285F4;
+    --md-brand-hover: #3367D6;
+    --md-brand-subtle: rgba(66, 133, 244, 0.08);
+    --md-brand-border: rgba(66, 133, 244, 0.28);
+
+    /* Google Sentiment Throughline */
+    --md-pos: #34A853;
+    --md-pos-subtle: rgba(52, 168, 83, 0.10);
+    --md-pos-border: rgba(52, 168, 83, 0.32);
+
+    --md-neu: #FBBC05;
+    --md-neu-subtle: rgba(251, 188, 5, 0.12);
+    --md-neu-border: rgba(251, 188, 5, 0.35);
+
+    --md-neg: #EA4335;
+    --md-neg-subtle: rgba(234, 67, 53, 0.10);
+    --md-neg-border: rgba(234, 67, 53, 0.32);
+
+    /* Material Elevation Shadows */
+    --md-shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    --md-shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    --md-shadow-lg: 0 2px 6px 2px rgba(60,64,67,0.15), 0 8px 24px 6px rgba(60,64,67,0.15);
+  }
+
+  .dark {
+    /* Google Dark Theme (Adjusted Variants used in Gmail/Photos/Android M3) */
+    --md-bg: #202124;
+    --md-surface: #292A2D;
+    --md-surface-variant: #35363A;
+    --md-surface-elevated: #303134;
+    --md-border: #3C4043;
+    --md-border-subtle: #494C50;
+    --md-text-primary: #E8EAED;
+    --md-text-secondary: #9AA0A6;
+    --md-text-tertiary: #5F6368;
+
+    /* Skeleton Shimmer Gradient - Dark */
+    --md-shimmer-base: #292A2D;
+    --md-shimmer-highlight: #35363A;
+
+    /* Google Brand Accent (Dark Adjusted) */
+    --md-brand: #8AB4F8;
+    --md-brand-hover: #AECBFA;
+    --md-brand-subtle: rgba(138, 180, 248, 0.14);
+    --md-brand-border: rgba(138, 180, 248, 0.32);
+
+    /* Google Sentiment Throughline (Dark Adjusted) */
+    --md-pos: #81C995;
+    --md-pos-subtle: rgba(129, 201, 149, 0.14);
+    --md-pos-border: rgba(129, 201, 149, 0.32);
+
+    --md-neu: #FDD663;
+    --md-neu-subtle: rgba(253, 214, 99, 0.14);
+    --md-neu-border: rgba(253, 214, 99, 0.32);
+
+    --md-neg: #F28B82;
+    --md-neg-subtle: rgba(242, 139, 130, 0.14);
+    --md-neg-border: rgba(242, 139, 130, 0.32);
+
+    /* Dark Mode uses borders & tonal separation instead of heavy shadows */
+    --md-shadow-sm: none;
+    --md-shadow-md: none;
+    --md-shadow-lg: none;
+  }
+
+  body {
+    background-color: var(--md-bg);
+    color: var(--md-text-primary);
+    font-family: "Roboto Flex", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-variation-settings: "GRAD" 0, "slnt" 0, "XTRA" 468, "XOPQ" 96, "YOPQ" 79;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+}
+
+@keyframes md-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer utilities {
+  .md-card {
+    background-color: var(--md-surface);
+    border: 1px solid var(--md-border);
+    border-radius: 20px;
+    box-shadow: var(--md-shadow-sm);
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .md-card:hover {
+    box-shadow: var(--md-shadow-md);
+    border-color: var(--md-border-subtle);
+  }
+
+  .dark .md-card:hover {
+    border-color: var(--md-brand-border);
+    background-color: var(--md-surface-variant);
+  }
+
+  .md-input {
+    background-color: var(--md-surface-elevated);
+    border: 1px solid var(--md-border);
+    border-radius: 14px;
+    padding: 0.625rem 1rem;
+    color: var(--md-text-primary);
+    font-family: "Roboto Flex", sans-serif;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .md-input:focus {
+    outline: none;
+    border-color: var(--md-brand);
+    box-shadow: 0 0 0 3px var(--md-brand-subtle);
+  }
+
+  /* Authentic Material pill button */
+  .md-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.625rem 1.375rem;
+    transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .md-btn-primary {
+    background-color: var(--md-brand);
+    color: #FFFFFF;
+  }
+
+  .dark .md-btn-primary {
+    background-color: var(--md-brand);
+    color: #202124;
+  }
+
+  .md-btn-primary:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 1px 3px rgba(66, 133, 244, 0.35);
+  }
+
+  .md-btn-secondary {
+    background-color: var(--md-surface-variant);
+    color: var(--md-text-primary);
+    border: 1px solid var(--md-border);
+  }
+
+  .md-btn-secondary:hover {
+    background-color: var(--md-border-subtle);
+    border-color: var(--md-text-tertiary);
+  }
+
+  /* Sentiment pill chip */
+  .sentiment-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .sentiment-pill-pos {
+    background-color: var(--md-pos-subtle);
+    color: var(--md-pos);
+    border: 1px solid var(--md-pos-border);
+  }
+
+  .sentiment-pill-neu {
+    background-color: var(--md-neu-subtle);
+    color: var(--md-neu);
+    border: 1px solid var(--md-neu-border);
+  }
+
+  .sentiment-pill-neg {
+    background-color: var(--md-neg-subtle);
+    color: var(--md-neg);
+    border: 1px solid var(--md-neg-border);
+  }
+
+  /* Material Shimmer Skeleton */
+  .md-skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--md-shimmer-base) 0%,
+      var(--md-shimmer-highlight) 50%,
+      var(--md-shimmer-base) 100%
+    );
+    background-size: 200% 100%;
+    animation: md-shimmer 1.5s infinite linear;
+    border-radius: 12px;
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .md-skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+    background: var(--md-shimmer-highlight) !important;
+  }
+}
+
+/* Custom Scrollbar for Material aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-text-tertiary);
+}

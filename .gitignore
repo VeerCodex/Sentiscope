@@ -1,0 +1,41 @@
+# Node.js & Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.npm/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.timestamp-*.mjs
+
+# Python & Backend
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/*/__pycache__/
+backend/.venv/
+backend/venv/
+backend/env/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Environment Variables & Secrets
+.env
+backend/.env
+frontend/.env
+*.env.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
